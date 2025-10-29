@@ -30,10 +30,11 @@ const UrlFeeding: React.FC<UrlFeedingStateProps> = ({ setdata, data }) => {
             <option value="" disabled>
               Select Type
             </option>
-            <option value="Conclusion">Conclusion</option>
-            <option value="Summary">Summary</option>
-            <option value="In Short">In Short</option>
-            <option value="Conclusion">In Brief</option>
+            <option value="in short">In Short</option>
+            <option value="in boolets">In Boolets</option>
+            <option value="in brief">In Brief</option>
+            <option value="conclusion">Conclusion</option>
+            <option value="summary">full Summary</option>
           </select>
         </div>
 
@@ -46,9 +47,10 @@ const UrlFeeding: React.FC<UrlFeedingStateProps> = ({ setdata, data }) => {
           placeholder="Enter the URL here..."
         />
 
-        <button className="bg-white h-full px-8 cursor-pointer hover:text-blue-400 hover:scale-105 transition-all duration-200 ease-in-out">
-          Submit
-        </button>
+        <div className="bg-white flex gap-1 items-center justify-center h-full px-9 cursor-pointer hover:text-blue-400 hover:scale-105 transition-all duration-200 ease-in-out">
+          <button className="" >Submit</button>
+          <img src="rightArrow.png" alt="" className="size-6 " />
+        </div>
       </form>
     </div>
   );

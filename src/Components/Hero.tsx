@@ -20,10 +20,16 @@ const Hero = () => {
             </h1>
           </div>
         </div>
-        <p className="text-[#dedede] w-150 text-center">
-          Save your time, instead of wasting it on clickbate videos, get quick
-          context, conclusion, summary in few seconds!
-        </p>
+        <div className="flex">
+          <p className="text-[#dedede] w-150 text-center mix-blend-overlay">
+            Skip the fluff. Get straight to what matters — the main points and
+            conclusions, instantly.
+          </p>
+          <p className="text-[#dedede] w-150 absolute text-center mix-blend-overlay">
+            Skip the fluff. Get straight to what matters — the main points and
+            conclusions, instantly.
+          </p>
+        </div>
       </div>
     </div>
   );
