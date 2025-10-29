@@ -24,12 +24,12 @@ const MainField = () => {
 
   type formDataType = {
     selectType: string;
-    Url: string;
+    url: string;
   };
 
-  const [data, setdata] = useState<formDataType>({
+  const [data, setData] = useState<formDataType>({
     selectType: "",
-    Url: "",
+    url: "",
   });
 
   return (
@@ -41,7 +41,7 @@ const MainField = () => {
         {/* main feature */}
         <div className="w-full flex justify-center items-center">
           {/* controller */}
-          <UrlFeeding setdata={setdata} data={data} />
+          <UrlFeeding setData={setData} data={data} />
 
           {/* checkBoxs */}
           {/* <CheckBoxed checkBoxHandler={checkBoxHandler} /> */}

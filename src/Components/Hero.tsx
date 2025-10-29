@@ -22,11 +22,11 @@ const Hero = () => {
         </div>
         <div className="flex">
           <p className="text-[#dedede] w-150 text-center mix-blend-overlay max-[430px]:w-100 px-3  max-[400px]:w-90">
-            Skip the fluff. Get straight to what matters <br /> — the main points and
+            Skip the fluff. Get straight to what matters — the main points and
             conclusions, instantly.
           </p>
           <p className="text-[#dedede] w-150 absolute text-center mix-blend-overlay max-[430px]:w-100 px-3 max-[400px]:w-90">
-            Skip the fluff. Get straight to what matters <br />  — the main points and
+            Skip the fluff. Get straight to what matters   — the main points and
             conclusions, instantly.
           </p>
         </div>
