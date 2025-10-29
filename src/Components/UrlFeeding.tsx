@@ -14,9 +14,9 @@ const UrlFeeding: React.FC<UrlFeedingStateProps> = ({ setdata, data }) => {
     <div>
       <form
         action=""
-        className="border border-[#ffffffba] w-190 h-15 flex justify-between"
+        className="border border-[#ffffffba] w-190 h-15 flex justify-between max-[760px]:w-120 max-[430px]:w-100 max-[430px]:h-10 max-[400px]:w-90"
       >
-        <div className="w-fit px-2 h-full flex rounded-none justify-center items-center border bg-gray-800">
+        <div className="w-fit px-2 h-full flex rounded-none justify-center items-center border bg-gray-800 ">
           {/* <label htmlFor="content-type" className="sr-only">
                 Select Content Type
               </label> */}
@@ -48,7 +48,7 @@ const UrlFeeding: React.FC<UrlFeedingStateProps> = ({ setdata, data }) => {
         />
 
         <div className="bg-white flex gap-1 items-center justify-center h-full px-9 cursor-pointer hover:text-blue-400 hover:scale-105 transition-all duration-200 ease-in-out">
-          <button className="" >Submit</button>
+          <button className="">Submit</button>
           <img src="rightArrow.png" alt="" className="size-6 " />
         </div>
       </form>

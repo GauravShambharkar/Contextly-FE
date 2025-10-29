@@ -28,18 +28,18 @@ const MainField = () => {
   };
 
   const [data, setdata] = useState<formDataType>({
-    selectType: "Summary",
-    Url: "https://github.com/GauravShambharkar/Multi-techStack-backend-directory-Generator",
+    selectType: "",
+    Url: "",
   });
 
   return (
     <>
-      <div className="bg-blue-500 w-full h-screen flex flex-col justify-center items-center gap-10">
+      <div className="bg-blue-500 w-full  h-screen flex  flex-col justify-center items-center gap-10">
         {/* hero section */}
         <Hero />
 
         {/* main feature */}
-        <div className="w-full gap-10 flex flex-col justify-center items-center">
+        <div className="w-full flex justify-center items-center">
           {/* controller */}
           <UrlFeeding setdata={setdata} data={data} />
 
