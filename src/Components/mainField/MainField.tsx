@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Hero from "./Hero";
-import UrlFeeding from "./UrlFeeding";
+import Hero from "../hero/Hero";
+import UrlFeeding from "../UrlFeeding/UrlFeeding";
 
 const MainField = () => {
   // const checkBoxHandler = [

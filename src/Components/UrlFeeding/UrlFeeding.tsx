@@ -4,9 +4,9 @@ import React, {
   type ChangeEvent,
   type FormEvent,
 } from "react";
-import ErrDisplay from "./ErrDisplay";
+import ErrDisplay from "../errDisplay/ErrDisplay";
 import axios, { isAxiosError } from "axios";
-import Response from "./Response/Response";
+import Response from "../Response/Response";
 import { MdOutlineSentimentVerySatisfied } from "react-icons/md";
 
 type formDataTypeProp = {

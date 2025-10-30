@@ -1,5 +1,5 @@
 import React from "react";
-import MainField from "./Components/MainField";
+import MainField from "./Components/mainField/MainField";
 
 const App = () => {
   return (
