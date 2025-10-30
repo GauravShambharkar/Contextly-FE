@@ -171,11 +171,8 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
           </div>
         </div>
       ) : (
-        <div className="w-190  p-5 flex mt-10">
-          <Response
-            setChatResponse={setChatResponse}
-            chatResponse={chatResponse}
-          />
+        <div className="w-190 p-5 flex mt-10">
+          <Response chatResponse={chatResponse} />
         </div>
       )}
     </div>

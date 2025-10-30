@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
 
 type StateType = {
   title: string | null;
@@ -8,32 +9,42 @@ type StateType = {
 };
 
 type responseTypeProp = {
-  setChatResponse: React.Dispatch<React.SetStateAction<StateType>>;
   chatResponse: StateType;
 };
 
-const Response: React.FC<responseTypeProp> = ({
-  setChatResponse,
-  chatResponse,
-}) => {
+const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
+  const [copy, setCopy] = useState<boolean>(false);
+
+  function copyToClipboard() {
+    setCopy(true);
+    setTimeout(() => {
+      setCopy(false);
+    }, 5000);
+    navigator.clipboard.writeText(chatResponse.summary!);
+  }
+
   if (!chatResponse.summary) return null;
   return (
     <>
       {chatResponse.summary && (
-        <div className="allcenter gap-2 text-white p-4 tracking-tighter flex flex-col">
+        <div className="allcenter w-full gap-2 text-white p-4 tracking-tighter flex flex-col">
           {/* title */}
           <span className="flex gap-2 w-full">
             <label className="" htmlFor="">
               Title :
             </label>
-            <h3 className="text-[#b3d3ff]">{chatResponse.title}</h3>
+            <h3 className="text-[#b3d3ff]">
+              {chatResponse.title ? chatResponse.title : "N/A"}
+            </h3>
           </span>
           {/* channel */}
           <span className="flex gap-2 w-full">
             <label className="" htmlFor="">
               Channel :
             </label>
-            <h3 className="text-[#b3d3ff]">{chatResponse.channel}</h3>
+            <h3 className="text-[#b3d3ff]">
+              {chatResponse.channel ? chatResponse.channel : "N/A"}
+            </h3>
           </span>
           {/* url */}
           <span className="flex gap-2 w-full">
@@ -45,19 +56,29 @@ const Response: React.FC<responseTypeProp> = ({
               href={chatResponse.url ?? "#"}
               className="text-[#b8d5ff]"
             >
-              {chatResponse.url}
+              {chatResponse.url ? chatResponse.url : "N/A"}
             </a>
           </span>
           {/* summary */}
           <span className="gap-2 w-full">
-            <label className="" htmlFor="">
-              Summary :
-            </label>
+            <div className="w-full flex justify-between">
+              <label className="" htmlFor="">
+                Summary :
+              </label>
+              {!copy ? (
+                <TbCopy
+                  onClick={copyToClipboard}
+                  className="text-white size-6 cursor-pointer hover:text-blue-200 transition-all duration-300 ease-in-out"
+                />
+              ) : (
+                <TbCopyCheckFilled className="text-white size-6" />
+              )}
+            </div>
             <h3 className="text-[#b3d3ff]">
               {(chatResponse.summary ?? "")
-                .split(/\n\n|\n/) // ✅ regex handles both cases
+                .split(/\n\n|\n/) // regex handles both cases
                 .map((text, i) => (
-                  <p key={i}>{text}</p>
+                  <p key={i}>{text ? text : "N/A"}</p>
                 ))}
             </h3>
           </span>
