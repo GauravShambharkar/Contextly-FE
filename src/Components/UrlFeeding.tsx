@@ -65,6 +65,7 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         }));
       }, 6000);
     }
+    setIsLoading(true);
 
     try {
       const res = await axios.post("http://localhost:5000/summarize", {
@@ -72,7 +73,6 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         summarizeType: data.selectType,
       });
       console.log("Submitted Data:", res.data);
-      setIsLoading(true);
 
       if (res.data.ok) {
         setIsLoading(false);
