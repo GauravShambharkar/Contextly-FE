@@ -4,7 +4,7 @@ import MainField from "./Components/MainField";
 const App = () => {
   return (
     <>
-      <div className="w-full h-screen flex justify-center items-center bg-gray-200 ">
+      <div className="w-full min-h-screen flex justify-center items-center bg-gray-200 ">
         <MainField />
       </div>
     </>

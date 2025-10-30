@@ -42,30 +42,28 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
     url: string | null;
     summary: string | null;
   }>({
-    title: "Is It Still Worth Learning to Code? (The Truth)",
-    channel: "CodeWithHarry",
-    url: "https://www.youtube.com/watch?v=2jmiNO3jwrA",
-    summary:
-      'Here is a summary of the video "Is It Still Worth Learning to Code? (The Truth)":\n\n1.  Learning to code remains valuable, as AI is primarily an augmentation tool that enhances productivity rather than fully replacing human programmers.\n2.  There is a continued demand for coding skills, with projections indicating significant growth in software development roles.\n3.  Successful programmers in the current landscape must adapt by integrating AI tools into their workflow and continuously upskilling to work effectively alongside artificial intelligence.\n4.  Mastering fundamental programming concepts, including logic, data structures, and algorithms, is critical for understanding, reviewing, and refining AI-generated code.\n5.  Coding fosters computational thinking and problem-solving abilities, which are essential skills in an increasingly technology-driven world.\n6.  Python is highly recommended as a starting language for beginners due to its ease of learning, extensive community support, and broad applicability in various fields like data science and AI.\n7.  A career in programming offers diverse opportunities across areas such as web development, data science, and AI, provided one focuses on practical application and real-world projects.',
+    title: null,
+    channel: null,
+    url: null,
+    summary: null,
   });
 
   // on Submit function
   const [isLoading, setIsLoading] = useState(false);
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setIsLoading(true);
 
     if (!data.url || !data.selectType) {
       setErr((prev) => ({
         ...prev,
-        ErrMsg: "URL and select Type is must!!",
+        ErrMsg: "URL and select Type is must !!",
       }));
       return setTimeout(() => {
         setErr((prev) => ({
           ...prev,
           ErrMsg: null,
         }));
-      }, 4000);
+      }, 6000);
     }
 
     try {
@@ -74,6 +72,8 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         summarizeType: data.selectType,
       });
       console.log("Submitted Data:", res.data);
+      setIsLoading(true);
+
       if (res.data.ok) {
         setIsLoading(false);
         setChatResponse((prev) => ({
@@ -158,23 +158,25 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         </button>
       </form>
       {err.ErrMsg && (
-        <div className="w-190 border p-5 flex items-center justify-center mt-10">
+        <div className="w-190 p-5 flex items-center justify-center mt-10">
           <ErrDisplay err={err} />
         </div>
       )}
 
       {isLoading ? (
-        <div className="w-190 border p-5 flex items-center justify-center mt-10">
+        <div className="w-190 p-5 flex items-center justify-center mt-10">
           <div className="allcenter gap-2 flex text-blue-500 bg-amber-50 p-4 tracking-tighter font-semibold">
-            <MdOutlineSentimentVerySatisfied />
+            <MdOutlineSentimentVerySatisfied className="size-6" />
             getting what you want, please wait...
           </div>
         </div>
       ) : (
-        <Response
-          setChatResponse={setChatResponse}
-          chatResponse={chatResponse}
-        />
+        <div className="w-190  p-5 flex mt-10">
+          <Response
+            setChatResponse={setChatResponse}
+            chatResponse={chatResponse}
+          />
+        </div>
       )}
     </div>
   );

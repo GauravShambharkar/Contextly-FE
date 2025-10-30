@@ -34,7 +34,7 @@ const MainField = () => {
 
   return (
     <>
-      <div className="bg-blue-500 w-full  h-screen flex  flex-col justify-center items-center gap-10">
+      <div className="bg-blue-500 w-full min-h-screen p-5 flex flex-col justify-center items-center gap-10 max-[400px]:p-0 ">
         {/* hero section */}
         <Hero />
 

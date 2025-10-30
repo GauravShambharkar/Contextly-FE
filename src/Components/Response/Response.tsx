@@ -16,19 +16,51 @@ const Response: React.FC<responseTypeProp> = ({
   setChatResponse,
   chatResponse,
 }) => {
+  if (!chatResponse.summary) return null;
   return (
     <>
       {chatResponse.summary && (
         <div className="allcenter gap-2 text-white p-4 tracking-tighter flex flex-col">
           {/* title */}
-          <label htmlFor="">Title</label>
-          <h3>{chatResponse.title}</h3>
+          <span className="flex gap-2 w-full">
+            <label className="" htmlFor="">
+              Title :
+            </label>
+            <h3 className="text-[#b3d3ff]">{chatResponse.title}</h3>
+          </span>
           {/* channel */}
-          <h3>{chatResponse.channel}</h3>
+          <span className="flex gap-2 w-full">
+            <label className="" htmlFor="">
+              Channel :
+            </label>
+            <h3 className="text-[#b3d3ff]">{chatResponse.channel}</h3>
+          </span>
           {/* url */}
-          <h3>{chatResponse.url}</h3>
+          <span className="flex gap-2 w-full">
+            <label className="" htmlFor="">
+              Url :
+            </label>
+            <a
+              target="_blank"
+              href={chatResponse.url ?? "#"}
+              className="text-[#b8d5ff]"
+            >
+              {chatResponse.url}
+            </a>
+          </span>
           {/* summary */}
-          <h3>{chatResponse.summary}</h3>
+          <span className="gap-2 w-full">
+            <label className="" htmlFor="">
+              Summary :
+            </label>
+            <h3 className="text-[#b3d3ff]">
+              {(chatResponse.summary ?? "")
+                .split(/\n\n|\n/) // ✅ regex handles both cases
+                .map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
+            </h3>
+          </span>
         </div>
       )}
     </>
