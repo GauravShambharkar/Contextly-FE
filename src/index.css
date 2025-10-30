@@ -3,3 +3,7 @@
 body {
     font-family: geist;
 }
+
+.allcenter{
+    @apply flex items-center justify-center
+}

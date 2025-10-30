@@ -1,19 +1,23 @@
 import React from "react";
+import { MdError } from "react-icons/md";
 
 type errTypeProp = {
-  err: boolean;
-  ErrMsg: string;
+  ErrMsg: string | null;
 };
 
-type errState = {
+type errStateProp = {
   err: errTypeProp;
 };
 
-const ErrDisplay: React.FC<errState> = ({ err }) => {
+const ErrDisplay: React.FC<errStateProp> = ({ err }) => {
   return (
-    <div>
-      <h1 className="text-white" >{err.ErrMsg}</h1>
-    </div>
+    <>
+      {err.ErrMsg && (
+        <div className="allcenter gap-2 text-red-500 bg-amber-50 p-4 tracking-tighter font-semibold">
+          <MdError className="size-6" />{err.ErrMsg}
+        </div>
+      )}
+    </>
   );
 };
 
