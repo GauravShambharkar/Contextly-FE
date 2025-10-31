@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
+import ReactPlayer from "react-player";
 
 type StateType = {
   title: string | null;
@@ -47,17 +48,27 @@ const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
             </h3>
           </span>
           {/* url */}
-          <span className="flex gap-2 w-full">
+          <span className="gap-2 w-full">
             <label className="" htmlFor="">
               Url :
             </label>
-            <a
+            {/* <a
               target="_blank"
               href={chatResponse.url ?? "#"}
               className="text-[#b8d5ff]"
             >
               {chatResponse.url ? chatResponse.url : "N/A"}
-            </a>
+            </a> */}
+            <div className="w-full h-90 px-5">
+              <ReactPlayer
+              className="h-full"
+                src={chatResponse.url!}
+                // url={chatResponse.url ?? ""}
+                controls
+                width="100%"
+                height="100%"
+              />
+            </div>
           </span>
           {/* summary */}
           <span className="gap-2 w-full">
