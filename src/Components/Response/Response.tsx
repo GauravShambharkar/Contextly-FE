@@ -24,7 +24,7 @@ const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
     navigator.clipboard.writeText(chatResponse.summary!);
   }
 
-  if (!chatResponse.summary) return null;
+  if (!chatResponse || !chatResponse.summary) return null;
   return (
     <>
       {chatResponse.summary && (
