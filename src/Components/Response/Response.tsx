@@ -32,7 +32,7 @@ const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
           {/* title */}
           <span className="flex gap-2 w-full">
             <label className="" htmlFor="">
-              Title :
+              Title:
             </label>
             <h3 className="text-[#b3d3ff]">
               {chatResponse.title ? chatResponse.title : "N/A"}
@@ -59,16 +59,20 @@ const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
             >
               {chatResponse.url ? chatResponse.url : "N/A"}
             </a> */}
-            <div className="w-full h-90 px-5">
-              <ReactPlayer
-              className="h-full"
-                src={chatResponse.url!}
-                // url={chatResponse.url ?? ""}
-                controls
-                width="100%"
-                height="100%"
-              />
-            </div>
+            {chatResponse ? (
+              <div className="w-full h-90 px-5">
+                <ReactPlayer
+                  className="h-full"
+                  src={chatResponse.url!}
+                  // url={chatResponse.url ?? ""}
+                  controls
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+            ) : (
+              <div className="w-full h-full">"loading video"</div>
+            )}
           </span>
           {/* summary */}
           <span className="gap-2 w-full">
