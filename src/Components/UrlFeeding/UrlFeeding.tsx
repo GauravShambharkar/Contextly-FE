@@ -68,7 +68,7 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/summarize", {
+      const res = await axios.post("https://contextly-backend.onrender.com/summarize", {
         url: data.url,
         summarizeType: data.selectType,
       });
