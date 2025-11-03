@@ -78,10 +78,10 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         setIsLoading(false);
         setChatResponse((prev) => ({
           ...prev,
-          summary: res.data.summary,
-          title: res.data.metadata.title,
-          channel: res.data.metadata.channel,
-          url: res.data.url,
+          summary: res.data.summary ?? null,
+          title: res.data.metadata.title ?? null,
+          channel: res.data.metadata.channel ?? null,
+          url: res.data.url ?? null,
         }));
         return console.log(res.data);
       }
