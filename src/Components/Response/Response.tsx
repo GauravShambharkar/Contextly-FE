@@ -63,8 +63,7 @@ const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
               <div className="w-full h-90 px-5">
                 <ReactPlayer
                   className="h-full"
-                  src={chatResponse.url!}
-                  // url={chatResponse.url ?? ""}
+                  url={chatResponse.url ?? ""}
                   controls
                   width="100%"
                   height="100%"

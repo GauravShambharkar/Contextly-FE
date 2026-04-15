@@ -68,10 +68,13 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("https://contextly-backend.onrender.com/summarize", {
-        url: data.url,
-        summarizeType: data.selectType,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_POST_SUMMARIZE_API}`,
+        {
+          url: data.url,
+          summarizeType: data.selectType,
+        }
+      );
       console.log("Submitted Data:", res.data);
 
       if (res.data.ok) {
@@ -79,19 +82,19 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         setChatResponse((prev) => ({
           ...prev,
           summary: res.data.summary ?? null,
-          title: res.data.metadata.title ?? null,
-          channel: res.data.metadata.channel ?? null,
+          title: res.data.metadata?.title ?? null,
+          channel: res.data.metadata?.channel ?? null,
           url: res.data.url ?? null,
         }));
         return console.log(res.data);
       }
-    } catch (err: unknown) {
-      if (isAxiosError(err)) {
-        const errorData = err.response?.data;
-        setErr({ ...err, ErrMsg: errorData.details });
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        const errorData = error.response?.data;
+        setErr((prev) => ({ ...prev, ErrMsg: errorData?.details || "An error occurred" }));
 
         setTimeout(() => {
-          setErr({ ...err, ErrMsg: null });
+          setErr((prev) => ({ ...prev, ErrMsg: null }));
         }, 6000);
         return console.log(errorData);
       }
