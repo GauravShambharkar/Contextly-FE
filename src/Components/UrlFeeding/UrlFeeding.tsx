@@ -107,7 +107,7 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
     }
   }
 
-  useEffect(() => {}, [err]);
+  useEffect(() => { }, [err]);
 
   return (
     <div>
@@ -154,11 +154,10 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
         <button
           type="submit"
           disabled={isLoading}
-          className={`bg-white flex gap-1 items-center justify-center h-full px-9 transition-all duration-200 ease-in-out ${
-            isLoading
+          className={`bg-white flex gap-1 items-center justify-center h-full px-9 transition-all duration-200 ease-in-out ${isLoading
               ? "opacity-50 cursor-not-allowed"
               : "cursor-pointer hover:text-blue-400 hover:scale-105"
-          }`}
+            }`}
         >
           <span>{isLoading ? "Loading..." : "Submit"}</span>
           {!isLoading && <img src="rightArrow.png" alt="" className="size-6" />}
