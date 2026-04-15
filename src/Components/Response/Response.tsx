@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TbCopy, TbCopyCheckFilled } from "react-icons/tb";
 import ReactPlayer from "react-player";
 
+
 type StateType = {
   title: string | null;
   channel: string | null;
@@ -61,15 +62,21 @@ const Response: React.FC<responseTypeProp> = ({ chatResponse }) => {
             </a> */}
             {chatResponse ? (
               <div className="w-full h-90 px-5">
-                <ReactPlayer
-                  className="h-full"
-                  url={chatResponse.url ?? ""}
-                  controls
-                  width="100%"
-                  height="100%"
-                />
+                {(() => {
+                  const Player = ReactPlayer as any;
+                  return (
+                    <Player
+                      className="h-full"
+                      url={chatResponse.url ?? ""}
+                      controls
+                      width="100%"
+                      height="100%"
+                    />
+                  );
+                })()}
               </div>
             ) : (
+
               <div className="w-full h-full">"loading video"</div>
             )}
           </span>
