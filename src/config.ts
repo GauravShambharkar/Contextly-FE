@@ -10,7 +10,8 @@
 const API_BASE_URL = import.meta.env.VITE_POST_SUMMARIZE_API || 
   (import.meta.env.MODE === 'development' 
     ? 'http://localhost:5000/summarize' 
-    : 'https://your-production-url.com/summarize');
+    : 'https://contextly-backend.onrender.com/summarize');
+
 
 export const ENDPOINTS = {
   SUMMARIZE: API_BASE_URL,

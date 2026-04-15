@@ -8,6 +8,8 @@ import ErrDisplay from "../errDisplay/ErrDisplay";
 import axios, { isAxiosError } from "axios";
 import Response from "../Response/Response";
 import { MdOutlineSentimentVerySatisfied } from "react-icons/md";
+import { ENDPOINTS } from "../../config";
+
 
 type formDataTypeProp = {
   selectType: string;
@@ -69,12 +71,14 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_POST_SUMMARIZE_API}`,
+        ENDPOINTS.SUMMARIZE,
         {
           url: data.url,
           summarizeType: data.selectType,
         }
       );
+
+
       console.log("Submitted Data:", res.data);
 
       if (res.data.ok) {
