@@ -7,3 +7,28 @@ body {
 .allcenter{
     @apply flex items-center justify-center
 }
+
+/* Custom global scrollbar matching Contextly UI style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827; /* Dark gray/blue track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6; /* Blue thumb matching UI theme */
+  border-radius: 0px; /* Sharp corners matching UI */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb; /* Darker blue on hover */
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 #111827;
+}

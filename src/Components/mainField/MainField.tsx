@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Hero from "../hero/Hero";
 import UrlFeeding from "../UrlFeeding/UrlFeeding";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 const MainField = () => {
   // const checkBoxHandler = [
@@ -34,14 +35,18 @@ const MainField = () => {
 
   return (
     <>
-      <div className="bg-blue-500 w-full min-h-screen p-5 flex flex-col justify-center items-center gap-10 max-[400px]:p-0 ">
+      <div className="bg-blue-500 w-full min-h-screen px-3 py-8 sm:p-8 flex flex-col justify-center items-center gap-6 sm:gap-10 overflow-x-hidden">
         {/* hero section */}
-        <Hero />
+        <ErrorBoundary>
+          <Hero />
+        </ErrorBoundary>
 
         {/* main feature */}
         <div className="w-full flex justify-center items-center">
           {/* controller */}
-          <UrlFeeding setData={setData} data={data} />
+          <ErrorBoundary>
+            <UrlFeeding setData={setData} data={data} />
+          </ErrorBoundary>
 
           {/* checkBoxs */}
           {/* <CheckBoxed checkBoxHandler={checkBoxHandler} /> */}
