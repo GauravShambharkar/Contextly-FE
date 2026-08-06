@@ -1,3 +1,5 @@
+
+
 /**
  * API Configuration
  * 
@@ -7,10 +9,12 @@
  * - .env.production is used during 'npm run build'
  */
 
+
+
 const API_BASE_URL = import.meta.env.VITE_POST_SUMMARIZE_API ||
   (import.meta.env.MODE === 'development'
-    ? 'http://localhost:5000/summarize'
-    : 'https://contextly-api.onrender.com/summarize');
+    ? 'http://localhost:5000/summarize' : 'https://contextly-api.onrender.com/summarize');
+
 
 
 export const ENDPOINTS = {

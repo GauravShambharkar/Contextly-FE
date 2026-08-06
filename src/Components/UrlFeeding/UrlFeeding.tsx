@@ -94,13 +94,21 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
       }
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        const errorData = error.response?.data;
-        setErr((prev) => ({ ...prev, ErrMsg: errorData?.details || "An error occurred" }));
+        let message = "An error occurred";
+        if (!error.response) {
+          message = "Network error: Unable to connect to the server. Please check if the backend is running and CORS is configured correctly.";
+        } else {
+          message = error.response.data?.details || error.response.data?.error || "Server error";
+        }
+        
+        setErr((prev) => ({ ...prev, ErrMsg: message }));
 
         setTimeout(() => {
           setErr((prev) => ({ ...prev, ErrMsg: null }));
         }, 6000);
-        return console.log(errorData);
+        console.error("API Error:", error.response?.data || error.message);
+      } else {
+        setErr((prev) => ({ ...prev, ErrMsg: "An unexpected error occurred" }));
       }
     } finally {
       setIsLoading(false);

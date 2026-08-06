@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://contextly-api.onrender.com',
+        target: 'https://contextly-api.onrender.com' || "http://localhost:5000",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
