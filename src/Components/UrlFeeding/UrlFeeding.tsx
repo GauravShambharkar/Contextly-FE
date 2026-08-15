@@ -210,7 +210,7 @@ const UrlFeeding: React.FC<StateProps> = ({ setData, data }) => {
           value={data.url}
           id="url-input"
           className="border-t-0 text-white border-black rounded-none w-full text-sm sm:text-base focus:border-sky-500 focus:outline-none focus:ring-0 px-3 py-3 sm:py-0 placeholder-gray-400 bg-transparent"
-          placeholder="Enter the URL here..."
+          placeholder="Enter any youtube video url..."
         />
 
         {/* Submit Button */}
